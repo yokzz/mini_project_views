@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if request.user.is_authenticated%}
+        <h1>Review form</h1>
+        <form method="POST" action="{% url 'review-form' %}">
+        {% csrf_token %}
+        <div>
+            <label for="product">Product:</label>
+            <input type="text" id="product" name="product">
+        </div>
+        <br>
+        <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <br>
+        <div>
+            <label for="text">Text:</label>
+            <input type="text" id="text" name="text">
+        </div>
+        <br>
+        <div>
+            <label for="Rating">rating:</label>
+            <input type="text" id="rating" name="rating">
+        </div>
+        <button type="submit">Send review</button>
+        </form>
+
+    {% else %}
+
+    <h1>You are not authenticated</h1>
+
+    {% endif%}
+
+    {% endblock content %}

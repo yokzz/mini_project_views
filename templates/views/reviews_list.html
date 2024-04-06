@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block content %}
+<ul>
+    {% for review in reviews %}
+    <h1>Product: {{ review.product }}</h1>
+    <h1>Author: {{ review.author }}</h1>
+    <h2>Rating: {{ review.rating }}★</h2>
+    <p>Review: {{ review.text }}</p>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
